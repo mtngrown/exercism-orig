@@ -8,6 +8,8 @@ class Year
       mod_zero?(year, 400) || non_century?(year)
     end
 
+    private
+
     def non_century? year
       mod_zero?(year, 4) && !mod_zero?(year, 100)
     end
