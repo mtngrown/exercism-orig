@@ -1,18 +1,16 @@
 #!/usr/bin/env ruby
 
-class String
-  def allcaps?
-    self == self.upcase
-  end
-end
-
 class Bob
   class << self
     def hey you
       return fine if you.empty? || you =~ /\A\s+\z/
-      return chillout if you.allcaps?
+      return chillout if allcaps? you
       return sure if you.end_with? '?'
       whatever
+    end
+
+    def allcaps? str
+      str == str.upcase && str.match(/[A-Z]+/)
     end
 
     def fine
