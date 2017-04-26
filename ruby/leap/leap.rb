@@ -5,17 +5,17 @@ end
 class Year
   class << self
     def leap? year
-      mod_zero?(year, 400) || non_century?(year)
+      evenly_divisible_by?(year, 4) && not_a_century(year) || evenly_divisible_by?(year, 400)
     end
 
     private
 
-    def non_century? year
-      mod_zero?(year, 4) && !mod_zero?(year, 100)
+    def not_a_century year
+      !evenly_divisible_by? year, 100
     end
 
-    def mod_zero? year, divisor
-      (year % divisor).zero?
+    def evenly_divisible_by? year, divisor
+      year.modulo(divisor).zero?
     end
   end
 end
