@@ -1,15 +1,7 @@
 class Complement
   def self.of_dna dna
-    dna.chars.map do |c|
-      case c
-      when 'G' then 'C'
-      when 'C' then 'G'
-      when 'T' then 'A'
-      when 'A' then 'U'
-      else
-        return ''
-      end
-    end.join
+    return '' if dna.match(/[^GCTA]/)
+    dna.tr('GCTA', 'CGAU')
   end
 end
 
