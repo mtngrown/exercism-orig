@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
-
 class Bob
   class << self
     def hey you
