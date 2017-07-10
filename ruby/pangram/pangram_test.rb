@@ -4,15 +4,15 @@ require_relative 'pangram'
 
 # Common test data version: 1.0.0 f375051
 class PangramTest < Minitest::Test
-  def test_all_letters_false
+  def test_full_alphabet_false
     letters = 'abc'.each_char.with_object(Hash.new(0)) { |l, h| h[l] += 1 }.keys
-    result = Pangram.all_letters?(letters)
+    result = Pangram.full_alphabet?(letters)
     refute result
   end
 
-  def test_all_letters_true
+  def test_full_alphabet_true
     letters = ('a'..'z').to_a.join.each_char.with_object(Hash.new(0)) { |l, h| h[l] += 1 }.keys
-    result = Pangram.all_letters?(letters)
+    result = Pangram.full_alphabet?(letters)
     assert result
   end
 
