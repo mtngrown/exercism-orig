@@ -10,17 +10,15 @@ class Squares
   end
 
   def sum
-    @sum ||= (1..n).reduce(:+)
+    @sum ||= n*(n+1)/2
   end
 
   def square_of_sum
-    return 0 if n.zero?
     sum * sum
   end
 
   def sum_of_squares
-    return 0 if n.zero?
-    (1..n).reduce(0) { |a, e| a += e * e }
+    n*(n+1)*(2*n + 1)/6
   end
 
   def difference
