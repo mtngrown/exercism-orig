@@ -59,6 +59,10 @@ class RomanNumeralsTest < Minitest::Test
     assert_equal 'CDII', 402.to_roman
   end
 
+  def test_494
+    assert_equal 'CDXCIV', 494.to_roman
+  end
+
   def test_575
     assert_equal 'DLXXV', 575.to_roman
   end
@@ -67,8 +71,16 @@ class RomanNumeralsTest < Minitest::Test
     assert_equal 'CMXI', 911.to_roman
   end
 
+  def test_949
+    assert_equal 'CMXLIX', 949.to_roman
+  end
+
   def test_1024
     assert_equal 'MXXIV', 1024.to_roman
+  end
+
+  def test_1987
+    assert_equal 'MCMLXXXVII', 1987.to_roman
   end
 
   def test_3000
