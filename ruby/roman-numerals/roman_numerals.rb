@@ -1,9 +1,7 @@
 class Integer
   def to_roman
-    return 'MMMMM' if self > 4000
-
+    return 'MMMMM++' if self > 4000
     temp = self
-
     numeral = ""
 
     if self >= 1000
@@ -11,6 +9,16 @@ class Integer
         numeral << 'M'
         temp -= 1000
       end
+      numeral << temp.to_roman
+
+    elsif temp >= 900 && temp < 1000
+      numeral << 'CM'
+      temp -= 900
+      numeral << temp.to_roman
+
+    elsif temp >= 500 && temp < 900
+      numeral << 'D'
+      temp -= 500
       numeral << temp.to_roman
 
     elsif temp >= 400 && temp < 500
@@ -32,10 +40,6 @@ class Integer
 
     elsif temp >= 60 && temp < 90
       numeral << 'L'
-      # (60..temp).step(10) do
-      #   numeral << 'X'
-      #   temp -= 10
-      # end
       temp -= 50
       numeral << temp.to_roman
 
